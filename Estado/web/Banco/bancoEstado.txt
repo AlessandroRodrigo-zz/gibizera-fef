@@ -1,0 +1,199 @@
+Create Table Estado(
+	idEstado Serial,
+	nomeEstado Varchar(250),
+	siglaEstado Varchar(2),
+
+	Constraint PK_idEstado Primary key (idEstado)
+);
+
+CREATE INDEX idEstado
+ON Estado (idEstado);
+
+Create Table Cidade(
+	idCidade Serial,
+	idEstado Integer,
+	nomeCidade Varchar(250),
+
+	Constraint PK_idCidade Primary key (idCidade, idEstado),
+	Constraint FK_idEstado Foreign Key (idEstado) references Estado(idEstado)
+);
+
+CREATE INDEX idCidade
+ON Cidade (idCidade);
+
+Create Table TipoPapel(
+	idTipoPapel Serial,
+	descricaoTipoPapel Varchar(250),
+	situacaoTipoPapel Varchar(2),
+
+	Constraint PK_idTipoPapel Primary key (idTipoPapel)
+);
+
+CREATE INDEX idTipoPapel
+ON TipoPapel (idTipoPapel);
+
+Create Table TipoCapa(
+	idTipoCapa Serial,
+	descricaoTipoCapa Varchar(250),
+	situacaoTipoCapa Varchar(2),
+
+	Constraint PK_idTipoCapa Primary key (idTipoCapa)
+);
+
+CREATE INDEX idTipoCapa
+ON TipoCapa (idTipoCapa);
+
+Create Table Formato(
+	idFormato Serial,
+	descricaoFormato Varchar(250),
+	situacaoFormato Varchar(2),
+
+	Constraint PK_idFormato Primary key (idFormato)
+);
+
+CREATE INDEX idFormato
+ON Formato (idFormato);
+
+Create Table Genero(
+	idGenero Serial,
+	descricaoGenero Varchar(250),
+	situacaoGenero Varchar(2),
+
+	Constraint PK_idGenero Primary key (idGenero)
+);
+
+CREATE INDEX idGenero
+ON Genero (idGenero);
+
+Create Table Editora(
+	idEditora Serial,
+	descricaoEditora Varchar(250),
+	situacaoEditora Varchar(2),
+
+	Constraint PK_idEditora Primary key (idEditora)
+);
+
+CREATE INDEX idEditora
+ON Editora (idEditora);
+
+Create Table Licenciadora(
+	idLicenciadora Serial,
+	descricaoLicenciadora Varchar(250),
+	situacaoLicenciadora Varchar(2),
+
+	Constraint PK_idLicenciadora Primary key (idLicenciadora)
+);
+
+CREATE INDEX idLicenciadora
+ON Licenciadora (idLicenciadora);
+
+Create Table TipoPublicacao(
+	idTipoPublicacao Serial,
+	descricaoTipoPublicacao Varchar(250),
+	situacaoTipoPublicacao Varchar(2),
+
+	Constraint PK_idTipoPublicacao Primary key (idTipoPublicacao)
+);
+
+CREATE INDEX idTipoPublicacao
+ON TipoPublicacao (idTipoPublicacao);
+
+Create Table Periodicidade(
+	idPeriodicidade Serial,
+	descricaoPeriodicidade Varchar(250),
+	situacaoPeriodicidade Varchar(2),
+
+	Constraint PK_idPeriodicidade Primary key (idPeriodicidade)
+);
+
+CREATE INDEX idPeriodicidade
+ON Periodicidade (idPeriodicidade);
+
+Create Table Personagem(
+	idPersonagem Serial,
+	descricaoPersonagem Varchar(250),
+
+	Constraint PK_idPersonagem Primary key (idPersonagem)
+);
+
+Create Table Arco(
+	idArco Serial,
+	descricaoArco Varchar(250),
+
+	Constraint PK_idArco Primary key (idArco)
+);
+
+
+Create Table Funcao(
+	idFuncao Serial,
+	descricaoFuncao Varchar(250),
+
+	Constraint PK_idFuncao Primary key (idFuncao)
+);
+
+Create Table Pessoa(
+    idPessoa serial,
+    idCidade int,
+    idEstado int,
+    cpfCnpjPessoa float,
+    nomePessoa varchar(200),
+    enderecoPessoa varchar(200),
+    nroEnderecoPessoa float,
+    bairroPessoa varchar(200),
+    telefonePessoa float,
+    celularPessoa float,
+    emailPessoa varchar(200),
+
+    Constraint PK_idPessoa Primary key (idPessoa),
+    Constraint FK_idCidade Foreign Key (idCidade, idEstado) References Cidade(idCidade, idEstado)
+);
+
+Create Table Vendedor(
+    idVendedor serial,
+    idPessoa int,
+    observacaoVendedor varchar(200),
+    situacaoVendedor varchar(1),
+
+    Constraint PK_idVendedor Primary key (idVendedor),
+    Constraint FK_idPessoa Foreign Key (idPessoa) References Pessoa(idPessoa)
+);
+
+Create Table Comprador(
+    idComprador serial,
+    idPessoa int,
+    observacaoComprador varchar(200),
+    situacaoComprador varchar(1),
+
+    Constraint PK_idComprador Primary key (idComprador),
+    Constraint FK_idPessoa Foreign Key (idPessoa) References Pessoa(idPessoa)
+);
+
+Create Table Profissional(
+    idProfissional serial,
+    idPessoa int,
+    observacaoProfissional varchar(200),
+    situacaoProfissional varchar(1),
+
+    Constraint PK_idProfissional Primary key (idProfissional),
+    Constraint FK_idPessoa Foreign Key (idPessoa) References Pessoa(idPessoa)
+);
+
+Create Table Usuario(
+    idUsuario serial,
+    idPessoa int,
+    observacaoUsuario varchar(200),
+    loginUsuario varchar(30),
+    senhaUsuario varchar(20),
+    situacaoUsuario varchar(1),
+
+    Constraint PK_idUsuario Primary key (idUsuario),
+    Constraint FK_idPessoa Foreign Key (idPessoa) References Pessoa(idPessoa)
+);
+
+Create Table TipoLombada(
+	idTipoLombada Serial,
+	descricaoTipoLombada Varchar(250),
+	situacaoTipoLombada Varchar(2),
+
+	Constraint PK_idTipoLombada Primary key (idTipoLombada)
+);
