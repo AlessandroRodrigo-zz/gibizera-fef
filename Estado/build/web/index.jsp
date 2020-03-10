@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ptbr">
 
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8">
         <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
         <link rel="icon" type="image/png" href="../assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
             Gibizera
         </title>
-        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+				<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="cssForm/form.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -18,20 +20,23 @@
         <div class="grid">
             <form action="ValidarUsuario" action="${pageContext.request.contextPath}/ValidarUsuario" method="POST" class="form login">
                 <div class="form__field">
-                    <center><img src="images/logo.png"/></center>
+                    <img src="images/logo.png"/>
                 </div>
                 <div class="form__field">
-                    <label for="login__username"><svg class="icon"><i class="far fa-user"></i></svg><span class="hidden">Usu·rio</span></label>
-                    <input id="login__username" type="text" name="loginUsuario" class="form__input" placeholder="Usu·rio" required>
+                    <label for="login__username"><i style="color: #FFF;" class="fa fa-user" aria-hidden="true"></i></label>
+                    <input id="login__username" type="text" name="loginUsuario" class="form__input" placeholder="User" required>
                 </div>
                 <div class="form__field">
-                    <label for="login__password"><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lock"></use></svg><span class="hidden">Senha</span></label>
+                    <label for="login__password"><i style="color: #FFF;" class="fa fa-lock" aria-hidden="true"></i></label>
                     <input id="login__password" type="password" name="senhaUsuario" class="form__input" placeholder="Senha" required>
                 </div>
                 <div class="form__field">
                     <input type="submit" value="Entrar">
                 </div>
-            </form>            
+            </form>
+            <div style="display: flex; flex: 1; justify-content: center; margin-top: 5vh;">
+                <a href="cadastroUsuario.jsp" style="text-decoration: none; text-transform: none;">Ainda n√£o possui uma conta? <span style="color: #A600D4; cursor: pointer;">Crie uma!</span></a>
+            </div>
         </div>    
     </body>
 

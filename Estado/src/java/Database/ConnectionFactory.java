@@ -21,7 +21,7 @@ public class ConnectionFactory {
     public static Connection getConnection() throws SQLException, Exception{
         try{
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/gibizera", "postgres", "postdba");
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5433/gibizera", "postgres", "docker");
         } catch(Exception ex){
             throw new Exception(ex.getMessage());
         }
